@@ -1,0 +1,126 @@
+REPORTE DE HALLAZGOS Y CONCLUSIONES
+Autor:Santiago Velasquez Arcila
+Prueba: Flujo de compra en Demoblaze
+URL: https://www.demoblaze.com/
+Tipo de prueba: End-to-End (E2E)
+Etiquetas: @smoke @purchase @e2e
+
+---
+
+1. OBJETIVO
+
+---
+
+Validar el flujo completo de compra en la plataforma Demoblaze, agregando dos productos al carrito y completando el proceso hasta obtener la confirmación exitosa de la compra
+
+---
+
+2. FLUJO EJECUTADO
+
+---
+
+1. Ingreso a la página principal.
+2. Selección y agregado de dos productos al carrito.
+3. Visualización del carrito de compras.
+4. Inicio del proceso de compra.
+5. Completar formulario con datos válidos.
+6. Finalización de la compra.
+7. Validación del mensaje de confirmación.
+
+---
+
+3. HALLAZGOS
+
+---
+
+HALLAZGO 1: Mensaje de agregado poco visible
+Se muestra una alerta tipo popup del navegador al agregar productos al carrito, pero no hay confirmación visual persistente en la página como contador dinámico claramente visible.
+
+Impacto: Bajo
+Severidad: Baja
+
+---
+
+HALLAZGO 2: No hay validaciones en el formulario
+El formulario permite ingresar datos inválidos o poco realistas sin ningún control ni mensaje de error.
+Campos aceptan números donde deberían ir textos (Name, City).
+Se permiten caracteres especiales y combinaciones incoherentes (Country).
+No hay validación de longitud ni formato en la tarjeta de crédito.
+Mes y año permiten valores irreales.
+No se valida tipo de dato ni rangos mínimos/máximos. 
+
+Impacto: Alto
+Severidad: Alto
+
+---
+
+HALLAZGO 3: No hay validación de campos obligatorios clara
+Si se dejan campos vacíos, el sistema no muestra mensajes de error específicos por campo.
+solo dos campos son obligatorios Name and Creditcard. 
+
+Impacto: Medio
+Severidad: Media
+
+---
+
+HALLAZGO 4: Experiencia de usuario básica
+El proceso de compra funciona correctamente, pero la experiencia es básica (sin loaders, sin validaciones dinámicas, sin confirmaciones intermedias).
+
+Impacto: Bajo
+Severidad: Baja
+
+---
+HALLAZGO 5: No muestra la moneda en el carrito de compras
+En la sección de productos, los artículos muestran correctamente la moneda y su denominación. Sin embargo, cuando el producto es agregado al carrito de compras, no se visualiza el tipo de moneda ni el precio individual, tampoco el total correspondiente. 
+
+Impacto: Medio
+Severidad: Media
+---
+HALLAZGO 6: Permite realizar la orden con el carrito vacío
+Aunque no haya productos en el carrito, al hacer clic en "Place Order" se despliega el formulario, que puede completarse y enviar la compra sin ningún artículo seleccionado.
+
+Impacto: Medio
+Severidad: Media
+---
+
+4. RESULTADO DE LA PRUEBA
+
+---
+
+El flujo principal de compra funciona correctamente.
+Se pudo:
+
+✔ Agregar dos productos al carrito
+✔ Visualizar el carrito correctamente
+✔ Completar el formulario
+✔ Finalizar la compra
+✔ Visualizar mensaje de confirmación
+
+El escenario E2E fue exitoso.
+
+---
+
+5. CONCLUSIONES
+
+---
+
+* El flujo principal de compra es funcional.
+* La aplicación cumple con el objetivo básico de permitir compras.
+* Existen oportunidades de mejora en validaciones y experiencia de usuario.
+* Se recomienda fortalecer validaciones de formulario y controles de datos sensibles.
+* Se importante aplicar alertas de confirmación durante la compra
+
+---
+
+6. RECOMENDACIONES
+
+---
+
+* Implementar validaciones más estrictas en el formulario de pago.
+* Agregar mensajes de error por campo obligatorio.
+* Mejorar la experiencia visual (indicadores de carga, confirmaciones dinámicas).
+* Implementar validaciones del lado servidor más robustas.
+
+---
+
+## FIN DEL DOCUMENTO

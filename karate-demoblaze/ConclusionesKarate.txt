@@ -1,0 +1,121 @@
+REPORTE DE HALLAZGOS Y CONCLUSIONES
+Autor Santiago Velasquez Arcila
+Prueba: API Login y Signup en Demoblaze
+Base URL: https://api.demoblaze.com
+Tipo de prueba: API / End-to-End
+Etiquetas: @login @signup @api
+
+---
+
+1. OBJETIVO
+
+---
+
+Validar los endpoints de autenticación y registro de usuarios en la API de Demoblaze, verificando respuestas correctas para credenciales válidas e inválidas, así como el manejo de usuarios existentes y nuevos.
+
+---
+
+2. ESCENARIOS EJECUTADOS
+
+---
+
+**Login API**
+
+1. Login correcto con usuario y contraseña válidos.
+2. Login incorrecto con contraseña inválida.
+
+**Signup API**
+
+1. Creación de nuevo usuario con nombre aleatorio.
+2. Intento de creación de usuario existente.
+
+---
+
+3. HALLAZGOS
+
+---
+
+HALLAZGO 1: Login correcto
+
+* Status 200 recibido.
+* Respuesta incluye token o confirmación de login.
+* Comportamiento esperado
+
+Impacto: Alto
+Severidad: Alta
+
+---
+
+HALLAZGO 2: Login incorrecto
+
+* Status 200 recibido, pero respuesta indica fallo de autenticación.
+* No se retorna código de error HTTP estándar (ej. 401 Unauthorized).
+
+Impacto: Medio
+Severidad: Media
+Observación: Aunque la API responde con status 200, la semántica HTTP podría mejorarse para diferenciar logins fallidos de exitosos.
+
+---
+
+HALLAZGO 3: Signup nuevo usuario
+
+* Usuario creado correctamente con username dinámico.
+* Status 200 recibido.
+* Comportamiento esperado 
+
+Impacto: Alto
+Severidad: Alta
+
+---
+
+HALLAZGO 4: Signup usuario existente
+
+* Status 200 recibido.
+* Respuesta indica que el usuario ya existe.
+* No hay código de error estándar para conflicto (ej. 409 Conflict).
+
+Impacto: Medio
+Severidad: Media
+Observación: La API funciona, pero podría mejorar la respuesta semántica para usuarios duplicados.
+
+---
+
+4. RESULTADO DE LAS PRUEBAS
+
+---
+
+Todos los escenarios ejecutados fueron funcionales y retornaron resultados coherentes con la lógica de la aplicación:
+
+Login correcto → exitoso
+Login incorrecto → rechazado correctamente
+Signup nuevo usuario → exitoso
+Signup usuario existente → rechazado correctamente
+
+---
+
+5. CONCLUSIONES
+
+---
+
+* Los endpoints de Login y Signup cumplen su funcionalidad básica.
+* La API responde correctamente según el flujo esperado, pero los códigos HTTP podrían alinearse mejor con las buenas prácticas REST.
+* La creación de usuarios dinámicos funciona correctamente y permite pruebas repetibles sin conflictos.
+* La API maneja correctamente usuarios existentes y contraseñas incorrectas, aunque con status 200 en todos los casos.
+
+---
+
+6. RECOMENDACIONES
+
+---
+
+Mejorar la semántica de los códigos HTTP:
+
+Login incorrecto → 401 Unauthorized
+Usuario ya existente → 409 Conflict
+Documentar claramente los posibles códigos de respuesta y mensajes de error.
+Implementar validaciones más estrictas de password en el signup.
+Considerar agregar logging o trazabilidad de intentos de login fallidos para seguridad.
+
+---
+
+## FIN DEL DOCUMENTO

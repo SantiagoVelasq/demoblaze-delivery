@@ -1,6 +1,7 @@
 # Proyecto Karate Demoblaze
 
 Este repositorio contiene pruebas automatizadas usando Karate para el proyecto Demoblaze.
+https://github.com/SantiagoVelasq/demoblaze-delivery
 
 ## Requisitos previos
 
