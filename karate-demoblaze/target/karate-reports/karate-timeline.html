@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"com\/demoblaze\/login.feature[1:6]","start":1772564700502,"end":1772564701746,"title":"com\/demoblaze\/login.feature[1:6] 14:05:00.502-14:05:01.746 Login correcto"},{"id":2,"group":1,"content":"com\/demoblaze\/login.feature[2:13]","start":1772564701767,"end":1772564702100,"title":"com\/demoblaze\/login.feature[2:13] 14:05:01.767-14:05:02.100 Login incorrecto"},{"id":3,"group":1,"content":"com\/demoblaze\/signup.feature[1:6]","start":1772564703230,"end":1772564703619,"title":"com\/demoblaze\/signup.feature[1:6] 14:05:03.230-14:05:03.619 Crear nuevo usuario"},{"id":4,"group":1,"content":"com\/demoblaze\/signup.feature[2:14]","start":1772564703662,"end":1772564704015,"title":"com\/demoblaze\/signup.feature[2:14] 14:05:03.662-14:05:04.015 Crear usuario existente"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

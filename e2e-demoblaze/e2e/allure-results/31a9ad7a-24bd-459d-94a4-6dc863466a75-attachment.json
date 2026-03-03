@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"link text\",\"selector\":\"Place Order\"}\n  (Session info: chrome=145.0.7632.117)",
+  "stacktrace": "Symbols not available. Dumping unresolved backtrace:\n\t0x7ff7466baa55\n\t0x7ff746418630\n\t0x7ff7461ad75d\n\t0x7ff74620862e\n\t0x7ff74620893c\n\t0x7ff746258d87\n\t0x7ff74625591c\n\t0x7ff7461f9098\n\t0x7ff7461f9f83\n\t0x7ff7466e7810\n\t0x7ff7466e1afd\n\t0x7ff746702c1a\n\t0x7ff746433345\n\t0x7ff74643b81c\n\t0x7ff746421924\n\t0x7ff746421ad6\n\t0x7ff746407e47\n\t0x7ffa063a7374\n\t0x7ffa0703cc91\n"
+}

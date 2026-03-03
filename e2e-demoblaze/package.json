@@ -1,0 +1,9 @@
+{
+  "name": "e2e-demoblaze",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "wdio": "npm run wdio --prefix e2e",
+    "test:smoke": "npm run test:smoke --prefix e2e"
+  }
+}
